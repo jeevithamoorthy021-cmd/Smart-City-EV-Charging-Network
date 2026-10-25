@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evNetwork xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="ev_network.xsd"
+           city="Smart City">
+
+    <chargingStations>
+        <station id="10" name="Central EV Station">
+            <location>
+                <latitude>12.8342</latitude>
+                <longitude>79.7036</longitude>
+                <address>Kanchipuram</address>
+            </location>
+            <sockets>
+                <socket number="1" type="CCS2">
+                    <maxPower unit="kW">60</maxPower>
+                    <status>AVAILABLE</status>
+                </socket>
+                <socket number="2" type="CCS2">
+                    <maxPower unit="kW">60</maxPower>
+                    <status>OCCUPIED</status>
+                </socket>
+            </sockets>
+            <diagnostics>
+                <code>TEMP_OK</code>
+                <code>VOLTAGE_OK</code>
+            </diagnostics>
+        </station>
+    </chargingStations>
+
+    <users>
+        <user id="1">
+            <name>Arun</name>
+            <email>arun@example.com</email>
+            <vehicle id="101">
+                <vehicleNumber>TN21AB1234</vehicleNumber>
+                <batteryCapacity unit="kWh">60</batteryCapacity>
+            </vehicle>
+        </user>
+        <user id="2">
+            <name>Priya</name>
+            <email>priya@example.com</email>
+            <vehicle id="102">
+                <vehicleNumber>TN21CD5678</vehicleNumber>
+                <batteryCapacity unit="kWh">75</batteryCapacity>
+            </vehicle>
+        </user>
+    </users>
+
+    <chargingSessions>
+        <session id="1001" stationId="10" vehicleId="101">
+            <startTime>2026-10-25T10:00:00</startTime>
+            <endTime>2026-10-25T11:00:00</endTime>
+            <energy unit="kWh">45.50</energy>
+            <status>COMPLETED</status>
+        </session>
+        <session id="1002" stationId="20" vehicleId="102">
+            <startTime>2026-10-25T11:30:00</startTime>
+            <energy unit="kWh">12.00</energy>
+            <status>ACTIVE</status>
+        </session>
+    </chargingSessions>
+
+    <logs>
+        <log id="1" stationId="10">
+            <message>Station started successfully</message>
+        </log>
+        <log id="2" stationId="10">
+            <message>Socket 2 charging in progress</message>
+        </log>
+        <log id="3" stationId="20">
+            <message>Active charging session detected</message>
+        </log>
+    </logs>
+
+</evNetwork>
